@@ -47,7 +47,7 @@ public class ConnectDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/jdbc", "root", "12345678");
+                "jdbc:mysql://localhost:3306/jdbc", "root", "********");
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM products WHERE Category = 'Mobile'");
         } catch (Exception e) {
