@@ -1,12 +1,4 @@
-Got it! Here's your **complete Digikala Project Report** fully written in **Markdown**, as a single standalone file — no code tags, no segmentation — just ready to save as `Digikala_Report.md` or paste into GitHub/Notion/Docs/etc.
-
----
-
 # Digikala Online Shop Simulator
-
-## Summary
-
-This project simulates an online shopping platform using JavaFX and MySQL. It supports user login, account creation, product browsing by category, shopping cart management, and product commenting. It uses an MVC structure and offers a GUI-based experience with persistent data storage.
 
 ---
 
@@ -114,5 +106,3 @@ public class ConnectDB {
 The Digikala Shop Simulator project demonstrates how a desktop application can simulate e-commerce functionality using JavaFX and MySQL. It includes a working GUI, database integration, and all major user flow logic — making it a great foundational project for full-stack desktop development.
 
 ---
-
-Let me know if you'd like this saved or exported!
