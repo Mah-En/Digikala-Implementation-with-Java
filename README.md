@@ -1,43 +1,53 @@
+Got it! Here's your **complete Digikala Project Report** fully written in **Markdown**, as a single standalone file — no code tags, no segmentation — just ready to save as `Digikala_Report.md` or paste into GitHub/Notion/Docs/etc.
+
+---
+
 # Digikala Online Shop Simulator
 
-## 📌 Introduction
-This project simulates an e-commerce platform similar to Digikala or Amazon using **JavaFX** for GUI and **MySQL** for database operations. It supports account management, login functionality, browsing products, and shopping cart features.
+## Summary
 
-## 🛠 Technologies Used
-- Java (with JavaFX)
-- FXML & Scene Builder
-- MySQL Database
-- MVC Design Pattern
+This project simulates an online shopping platform using JavaFX and MySQL. It supports user login, account creation, product browsing by category, shopping cart management, and product commenting. It uses an MVC structure and offers a GUI-based experience with persistent data storage.
 
-## 🧩 Project Structure
-- `Main.java` – App entry point, initializes database and GUI.
-- `ConnectDB.java` – Manages database connection and query execution.
-- `DigikalaService.java` – Core backend logic: user login, product handling, etc.
-- `User.java`, `Admin`, `Seller` – Data models for application users.
-- `Login.java`, `Createaccount.java` – GUI controller classes for login and account creation.
-- `UserPage.java` – Loads products by category into the interface.
+---
 
-## ✅ Features
-- User/Admin/Seller login system
-- Account creation and validation
-- Product listing by category: Mobile, Laptop, TV, Book, Watch
-- Shopping cart and order tracking
-- Comment system using MySQL table for product reviews
+## Introduction
 
-## 💡 Bonus Implementations
-1. JavaFX-based GUI design
-2. Product search functionality
-3. Comments stored and retrieved from database
-4. UUID usage for unique user IDs
-5. Sales/order history tracking for sellers
+This solo project replicates the core functionalities of an online shopping application similar to Digikala or Amazon. Users can browse products, register and log into their accounts, add items to a cart, and place orders. Admins and sellers have their own login flows. The application is built in Java using JavaFX for the graphical user interface and MySQL for backend data persistence.
 
-## ⚠ Challenges Faced
-- Integrating backend methods with JavaFX components
-- Dynamically updating UI with product data
-- Handling comment logic and displaying them properly
-- Ensuring database operations are correctly executed
+---
 
-## 📂 Sample Code (Database Connection)
+## Technologies Used
+
+- Java (JavaFX)
+- FXML (for layout via Scene Builder)
+- MySQL (JDBC for connectivity)
+- MVC pattern (Model-View-Controller)
+- UUID for unique user IDs
+
+---
+
+## Features
+
+- **Multi-role Authentication**: Login system for users, sellers, and admins
+- **Account Creation**: Users can sign up and are stored with unique UUIDs
+- **Product Browsing**: Items categorized into Mobiles, Laptops, TVs, Books, and Watches
+- **Cart & Orders**: Add products to cart and track order history
+- **Comment System**: Users can add and view comments tied to product IDs
+- **Search Functionality**: Search for products by name
+- **Persistent Storage**: Products and users are stored in a MySQL database
+
+---
+
+## Database Integration
+
+The app connects to a MySQL database using JDBC. Tables are used to store users, products, and comments. The application performs SQL queries to retrieve categorized product data and displays it in the GUI using JavaFX components like `VBox` and `Label`.
+
+---
+
+## Code Example
+
+The following snippet initializes a database connection and executes a sample query:
+
 ```java
 public class ConnectDB {
     static private Statement statement;
@@ -47,8 +57,62 @@ public class ConnectDB {
             Connection connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/jdbc", "root", "12345678");
             statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM products WHERE Category = 'Mobile'");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    public ResultSet query(String sql){
+        try {
+            return statement.executeQuery(sql);
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
+```
+
+---
+
+## Challenges Faced
+
+- Integrating frontend FXML with backend controller logic
+- Dynamically rendering data from SQL queries into JavaFX UI
+- Initial difficulties in showing product lists in JavaFX containers
+- Designing a system for storing and retrieving product-specific comments
+- Ensuring correct role-based login flows for different user types
+
+---
+
+## Bonus Tasks Implemented
+
+1. GUI design using JavaFX and Scene Builder  
+2. Commenting system with a relational database table  
+3. Product search functionality  
+4. Data persistence using JDBC and MySQL  
+5. History of sales and transactions  
+6. UUID-based user identification
+
+---
+
+## UML Diagram
+
+![UML Diagram](https://user-images.githubusercontent.com/77670851/233021163-aefede7d-4b6b-46c2-adec-69278649ed7e.png)
+
+---
+
+## Resources
+
+- [JavaFX Course on YouTube](https://youtu.be/9XJicRt_FaI)  
+- [MySQL Database Course](https://www.youtube.com/watch?v=lz3HilC2bDs&list=PLTfxx5t6obt-fvAmlpoy6bgwFNkBRFSSP&index=1)
+
+---
+
+## Conclusion
+
+The Digikala Shop Simulator project demonstrates how a desktop application can simulate e-commerce functionality using JavaFX and MySQL. It includes a working GUI, database integration, and all major user flow logic — making it a great foundational project for full-stack desktop development.
+
+---
+
+Let me know if you'd like this saved or exported!
